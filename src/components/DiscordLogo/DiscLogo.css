@@ -1,0 +1,17 @@
+.img-resize-disc {
+    max-width: 5vw;
+    height: auto;
+}
+
+@media screen and (max-width: 1024px) {
+    .sign-up {
+        font-size: 70px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .img-resize-disc {
+        max-width: 15vw;
+        height: auto;
+    }
+}
