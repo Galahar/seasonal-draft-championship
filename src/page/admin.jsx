@@ -48,7 +48,7 @@ const Admin = () => {
 						<Input id="count" type="Number" min="1" max="7" />
 					</MenuContainer>
 					<MenuContainer>
-						<Submit onclick={testFunction}>Generate</Submit>
+						<Submit onClick={testFunction}>Generate</Submit>
 					</MenuContainer>
 				</ContentContainer>
 				<ContentContainer id="output">
