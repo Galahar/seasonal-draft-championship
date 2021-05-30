@@ -12,4 +12,5 @@ export const FooterContainer = styled.nav`
     @media screen and (max-width: 1024px) {
         max-height: 200px;
     }
+	border-top: 2px solid ${theme.brown};
 `;
