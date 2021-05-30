@@ -1,11 +1,11 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Sdcleague
+from .models import Game
 
-class SdcAdmin(admin.ModelAdmin):
-    list_display = ('title', 'description', 'completed')
-   
+class GameAdmin(admin.ModelAdmin):
+    list_display = ("team1","team2","date","mapType","pickType","count","tournamentCodes")
+    readonly_fields = ("tournamentCodes",)
 # Register your models here.
 
-admin.site.register(Sdcleague,SdcAdmin)
+admin.site.register(Game,GameAdmin)
