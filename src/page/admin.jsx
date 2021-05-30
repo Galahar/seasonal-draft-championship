@@ -4,21 +4,20 @@ import Footer from "../components/Footer";
 import { ContentContainer, Background, Dropdown, MenuContainer, Label, Input, Submit } from "../pageStyles/admin";
 
 const getKeys = async () => {
-	alert("test")
-	const requestOptions = {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({"mapType": "SUMMONERS_RIFT","metadata": "","pickType": "TOURNAMENT_DRAFT","spectatorType": "ALL","teamSize": 5})
-    };
-	const count = 1;
-    fetch("https://americas.api.riotgames.com/lol/tournament-stub/v4/codes?count="+count+"&tournamentId=6908&api_key=RGAPI-8475f21a-8233-4394-9d21-cf8bea97690d",requestOptions)
-		.then(response => response.json());
 };
 
 const Admin = () => {
 	function testFunction(e) {
 		e.preventDefault();
-		console.log("test ran");
+		const requestOptions = {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify({"mapType": "SUMMONERS_RIFT","metadata": "","pickType": "TOURNAMENT_DRAFT","spectatorType": "ALL","teamSize": 5})
+		};
+		const count = 1;
+		fetch("https://americas.api.riotgames.com/lol/tournament-stub/v4/codes?count="+count+"&tournamentId=6908&api_key=RGAPI-8475f21a-8233-4394-9d21-cf8bea97690d",requestOptions)
+			.then(response => response.json())
+			.then(data => console.log(data));
 		return;
 	}
     return (
