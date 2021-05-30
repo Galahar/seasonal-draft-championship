@@ -11,6 +11,12 @@ export const TopContainer = styled.div`
 /*     background-attachment: fixed; */
     background-size: cover;
     background-color: ${theme.primaryLight};
+    @media screen and (max-width: 1280px) {
+        height: 700px;
+    }
+    @media screen and (max-width: 1024px) {
+        height: 800px;
+    }
 `;
 
 export const BackgroundFilter = styled.div`
@@ -31,6 +37,9 @@ export const TitlesContainer = styled.div`
     justify-content: center;
     align-items: center;
     margin-top: 200px;
+    @media screen and (max-width: 1024px) {
+        margin-top: 250px;
+    }
 `;
 
 export const TitleText = styled.h1`
@@ -53,7 +62,7 @@ export const TitleText = styled.h1`
         text-shadow: 1px 1px 0 black, 1px 1px 0 black, 3px 3px 0 black;
     }
     @media screen and (max-width: 1024px) {
-        font-size: 40px;
+        font-size: 50px;
         text-shadow: 1px 1px 0 black, 1px 1px 0 black, 2px 2px 0 black;
     }
 `;
