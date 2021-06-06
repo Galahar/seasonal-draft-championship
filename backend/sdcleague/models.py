@@ -19,20 +19,9 @@ class Game(models.Model):
         
     def generate_Tournament_Codes(self):
         body={"mapType": self.mapType,"metadata": "","pickType": self.pickType,"spectatorType": "ALL","teamSize": 5}
-        self.tournamentCodes = a.loop.run_until_complete(a.getTournamentCodes(self.count,body))
+        self.tournamentCodes = a.getTournamentCodes(self.count,body,True)
         
     def save(self, *args, **kwargs):
-        if not self.pk:
-            print("started generation: ",datetime.now())
-            self.generate_Tournament_Codes()
-            print("saved the model: ",datetime.now())
+        if not self.pk: #if it does not have a primary key generated yet then this is the first time calling save, so create tournament codes
+            self.generate_Tournament_Codes() #this is to avoid creating them multiple times if it is edited/saved again later IE reschedule/team name change
         super(Game, self).save(*args, **kwargs)
-
-'''
-list[str] allowedSummonerIds: list of all summonerId (optional)
-            str mapType: map for the game
-            str pickType: pick type for the game
-            str spectatorType: spectator type for the game
-            int teamSize: max number of player in a team
-            str metadata: additional data to get back with the callback (optional)
-'''

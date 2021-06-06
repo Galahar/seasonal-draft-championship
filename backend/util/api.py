@@ -1,18 +1,31 @@
-from pantheon import pantheon
-import asyncio
 from datetime import datetime
+import requests
+import json
 
 server = "americas"
 api_key = "RGAPI-8475f21a-8233-4394-9d21-cf8bea97690d"
 tournamentId = 6908
-loop = asyncio.get_event_loop()  
-panth = pantheon.Pantheon(server, api_key, errorHandling=True, debug=True)
 
-async def getTournamentCodes(count,data):
+def fetch(url, method="GET", data=None):
+    headers = {
+        "X-Riot-Token": api_key
+    }
+    
     try:
-        print("started api call: ",datetime.now())
-        data = await panth.createTournamentCode(tournamentId, data, nb_codes=count, stub=True)
-        print("ended api call: ",datetime.now())
-        return data
+        if method == "GET":
+            response = request.get(url, headers=headers)
+        elif method == "POST":
+            response = requests.post(url, headers=headers, data=json.dumps(data))
+    #In case of timeout
+    except Exception as e:
+        error.text = str(e) #make it so the error will be entered instead of the codes
+        return error
+    
+    return response
+
+def getTournamentCodes(count,data,stub):
+    try:
+        data = fetch(("https://{server}.api.riotgames.com/lol/tournament{stub}/v4/codes?count={nb_codes}&tournamentId={tournamentId}").format(server=server, stub="-stub" if stub else "", tournamentId=tournamentId, nb_codes=count), method="POST", data=data)
+        return data.text
     except Exception as e:
         print(e)
