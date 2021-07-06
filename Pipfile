@@ -8,6 +8,8 @@ django = "*"
 django-computedfields = "*"
 requests = "*"
 pantheon = "*"
+djangorestframework = "*"
+django-cors-headers = "*"
 
 [dev-packages]
 

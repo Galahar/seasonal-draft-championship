@@ -26,6 +26,11 @@ def fetch(url, method="GET", data=None):
 def getTournamentCodes(count,data,stub):
     try:
         data = fetch(("https://{server}.api.riotgames.com/lol/tournament{stub}/v4/codes?count={nb_codes}&tournamentId={tournamentId}").format(server=server, stub="-stub" if stub else "", tournamentId=tournamentId, nb_codes=count), method="POST", data=data)
-        return data.text
+        codes = json.loads(data.text)
+        #want to return codes as string formatted response for easier display
+        codeString = ""
+        for c in range(len(codes)):
+            codeString += codes[c] + "\n"
+        return codeString
     except Exception as e:
         print(e)

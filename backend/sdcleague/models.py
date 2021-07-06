@@ -22,6 +22,5 @@ class Game(models.Model):
         self.tournamentCodes = a.getTournamentCodes(self.count,body,True)
         
     def save(self, *args, **kwargs):
-        if not self.pk: #if it does not have a primary key generated yet then this is the first time calling save, so create tournament codes
-            self.generate_Tournament_Codes() #this is to avoid creating them multiple times if it is edited/saved again later IE reschedule/team name change
+        self.generate_Tournament_Codes() #this is to avoid creating them multiple times if it is edited/saved again later IE reschedule/team name change
         super(Game, self).save(*args, **kwargs)
