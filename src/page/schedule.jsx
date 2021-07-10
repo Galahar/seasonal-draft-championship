@@ -4,6 +4,8 @@ import Footer from "../components/Footer";
 import axios from "axios";
 import { ContentContainer, Background, MenuContainer, Text, List } from "../pageStyles/schedule";
 
+axios.defaults.baseURL = 'https://38.34.36.153:80';
+
 class Schedule extends Component {
 	constructor(props) {
 		super(props);

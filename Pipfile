@@ -10,6 +10,9 @@ requests = "*"
 pantheon = "*"
 djangorestframework = "*"
 django-cors-headers = "*"
+django-extensions = "*"
+werkzeug = "*"
+pyopenssl = "*"
 
 [dev-packages]
 

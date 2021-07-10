@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_extensions',
     'corsheaders',
     'rest_framework',
     'sdcleague',
@@ -128,7 +129,11 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+ALLOWED_HOSTS = ['*']
+
 CORS_ORIGIN_WHITELIST = [
      'http://localhost:3000',
      'https://sdcleague.com'
 ]
+
+CORS_URLS_REGEX = r'^/api/.*$'
