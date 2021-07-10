@@ -15,8 +15,8 @@ function App() {
         <Switch>
             <Route path='/' exact component={Homepage} />
             <Route path='/live' component={Live} />
-			<Route path='/admin' component={Admin} />
-			<Route path='/schedule' component={Schedule} />
+			      <Route path='/admin' component={Admin} />
+			      <Route path='/schedule' component={Schedule} />
         </Switch>
       </Router>
     </>
